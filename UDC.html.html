@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Document Converter</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-file-alt"></i> Ultimate Document Converter</h1>
+            <p>Convert any document to any format with the best quality</p>
+        </header>
+
+        <main>
+            <div class="converter-box" id="dropZone">
+                <div class="upload-area">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3>Drag & Drop files here</h3>
+                    <p>or</p>
+                    <button id="fileInputBtn" class="btn">Select Files</button>
+                    <input type="file" id="fileInput" multiple style="display: none;">
+                </div>
+            </div>
+
+            <div class="settings-box">
+                <div class="format-selector">
+                    <label for="outputFormat">Convert to:</label>
+                    <select id="outputFormat">
+                        <optgroup label="Documents">
+                            <option value="pdf">PDF</option>
+                            <option value="docx">Word (DOCX)</option>
+                            <option value="doc">Word (DOC)</option>
+                            <option value="odt">OpenDocument (ODT)</option>
+                            <option value="rtf">Rich Text (RTF)</option>
+                            <option value="txt">Plain Text (TXT)</option>
+                        </optgroup>
+                        <optgroup label="Images">
+                            <option value="jpg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                        </optgroup>
+                        <optgroup label="Other">
+                            <option value="html">HTML</option>
+                            <option value="epub">EPUB</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                <div class="quality-settings">
+                    <label for="quality">Quality:</label>
+                    <select id="quality">
+                        <option value="high">High (Best Quality)</option>
+                        <option value="medium" selected>Medium (Balanced)</option>
+                        <option value="low">Low (Smaller File)</option>
+                    </select>
+                </div>
+
+                <button id="convertBtn" class="btn convert-btn" disabled>
+                    <i class="fas fa-exchange-alt"></i> Convert Files
+                </button>
+            </div>
+
+            <div class="file-list" id="fileList">
+                <h3>Selected Files</h3>
+                <div class="file-list-container" id="fileListContainer">
+                    <p class="empty-message">No files selected</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2023 Ultimate Document Converter. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Progress Modal -->
+    <div class="modal" id="progressModal">
+        <div class="modal-content">
+            <h3>Converting Files</h3>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+                <span class="progress-text" id="progressText">0%</span>
+            </div>
+            <div id="conversionDetails"></div>
+        </div>
+    </div>
+
+    <!-- Download Modal -->
+    <div class="modal" id="downloadModal">
+        <div class="modal-content">
+            <h3>Conversion Complete</h3>
+            <div id="downloadList"></div>
+            <button id="downloadAllBtn" class="btn download-btn">
+                <i class="fas fa-download"></i> Download All
+            </button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
